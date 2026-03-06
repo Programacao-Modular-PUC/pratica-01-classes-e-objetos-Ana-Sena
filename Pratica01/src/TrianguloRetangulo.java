@@ -23,14 +23,12 @@ public class TrianguloRetangulo {
     public void setArea(double area) {this.area = area;}
     public double getArea() {return area;}
 
-    public double CalculaHipotenusa(){
+    public void CalculaHipotenusa(){
         setH(Math.sqrt((Math.pow(getC1(), 2) + Math.pow(getC2(), 2))));
-        return h;
     }
 
-    public double CalculaArea(){
+    public void CalculaArea(){
         setArea((getC1() * getC2())/2);
-        return area;
     }
 
 }
