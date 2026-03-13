@@ -1,7 +1,9 @@
+import java.util.Calendar;
+
 public class Pessoa {
     private String Nome;
     private String Sobrenome;
-    private int idade;
+    private Data data_nasc;
     private Double altura;
     private Double peso;
     private Double IMC;
@@ -9,7 +11,7 @@ public class Pessoa {
     public Pessoa(){
         Nome = "";
         Sobrenome = "";
-        idade = 0;
+        data_nasc = new Data();
         altura = 0.0;
         peso = 0.0;
         IMC = 0.0;
@@ -21,8 +23,8 @@ public class Pessoa {
     public void setSobrenome(String sobrenome) {Sobrenome = sobrenome;}
     public String getSobrenome() {return Sobrenome;}
 
-    public void setIdade(int idade) {this.idade = idade;}
-    public int getIdade() {return idade;}
+    public void setData_nasc(Data data_nasc) {this.data_nasc = data_nasc;}
+    public Data getData_nasc() {return data_nasc;}
 
     public void setAltura(Double altura) {this.altura = altura;}
     public Double getAltura() {return altura;};
@@ -57,4 +59,19 @@ public class Pessoa {
             System.out.println("Obesidade grau 3");
         }
     }
+
+    public void CalculaIdade(){
+        Calendar cal = Calendar.getInstance();
+        int Dh = cal.get(Calendar.DAY_OF_MONTH);
+        int Mh = cal.get(Calendar.MONTH);
+        int Ah = cal.get(Calendar.YEAR);
+        int idade = 0;
+
+        idade = Ah - data_nasc.getAno();
+
+
+
+    }
+
+
 }

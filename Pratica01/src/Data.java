@@ -1,9 +1,9 @@
-public class Date {
+public class Data {
     private int dia;
     private int mes;
     private int ano;
 
-    public Date(){
+    public Data(){
         dia = 0;
         mes = 0;
         ano = 0;
