@@ -1,4 +1,4 @@
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public class Pessoa {
     private String Nome;
@@ -60,17 +60,12 @@ public class Pessoa {
         }
     }
 
-    public void CalculaIdade(){
-        Calendar cal = Calendar.getInstance();
-        int Dh = cal.get(Calendar.DAY_OF_MONTH);
-        int Mh = cal.get(Calendar.MONTH);
-        int Ah = cal.get(Calendar.YEAR);
-        int idade = 0;
-
-        idade = Ah - data_nasc.getAno();
-
-
-
+    public int CalculaIdade(Data hoje){
+        int idade = hoje.getAno() - data_nasc.getAno();
+        if (hoje.getMes() < data_nasc.getMes() || (hoje.getMes() == data_nasc.getMes() && hoje.getDia() < data_nasc.getDia())){
+            idade--;
+        }
+        return idade;
     }
 
 
