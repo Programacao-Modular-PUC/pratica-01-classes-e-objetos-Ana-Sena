@@ -1,9 +1,14 @@
 import java.util.Scanner;
+import java.time.LocalDate;
+
 
 void main() {
     Scanner scanner = new Scanner(System.in);
     Pessoa pessoas[] = new Pessoa[10];
     int count = 0;
+    int idade = 0;
+    LocalDate hoje = LocalDate.now();
+    Data hojeData = new Data(hoje.getDayOfMonth(),hoje.getMonthValue(),hoje.getYear());
 
     for (int i = 0; i < 10; i++){
         pessoas[i] = new Pessoa();
@@ -38,20 +43,19 @@ void main() {
         scanner.nextLine();
 
         pessoas[count-1].setData_nasc(new Data(dia, mes, ano));
-    }while(count <= 10);
+        pessoas[count-1].CalculaIMC();
+    }while(count < 10);
 
     for(int i = 0; i < count; i++){
-        System.out.println()
-        System.out.println("Seu IMC e: " + pessoas[i].getIMC());
+        System.out.println("Cadastro " + i+1 +":");
+        System.out.println("Nome completo: " + pessoas[i].getNome() + pessoas[i].getSobrenome());
+        System.out.println("Nome de referencia: " + pessoas[i].getSobrenome() + pessoas[i].getNome().toUpperCase());
+        idade = pessoas[i].CalculaIdade(hojeData);
+        System.out.println("Idade: " + idade);
+        System.out.println("Peso: " + pessoas[i].getPeso());
+        System.out.println("Altura: " + pessoas[i].getAltura());
+        System.out.println("IMC: " + pessoas[i].getIMC());
+        pessoas[i].InformaObesidade();
+
     }
-
-    //Cadastro 1:
-    //Nome completo: Jos´e Oliveira Silva
-    //Nome de referˆencia: Oliveira Silva, JOS´E
-    //Idade: (valor idade)
-    //Peso: (valor peso)
-    //Altura: (valor altura)
-    //IMC: (valor IMC)
-    //Classifica¸c˜ao: (classifica¸c˜ao corporal)
-
 }
