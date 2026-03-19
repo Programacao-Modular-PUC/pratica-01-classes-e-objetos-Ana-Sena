@@ -35,6 +35,14 @@ public class Pessoa {
     public void setIMC(Double IMC) {this.IMC = IMC;}
     public Double getIMC() {return IMC;}
 
+    @Override
+    public boolean equals(Object obj) {
+        Pessoa outra = (Pessoa) obj;
+
+        return Nome.equalsIgnoreCase(outra.Nome) &&
+                Sobrenome.equalsIgnoreCase(outra.Sobrenome);
+    }
+
     public void CalculaIMC(){
         setIMC(getPeso()/(Math.pow(getAltura(), 2)));
     }
@@ -67,6 +75,4 @@ public class Pessoa {
         }
         return idade;
     }
-
-
 }

@@ -9,6 +9,12 @@ public class Data {
         ano = 0;
     }
 
+    public Data(int dia, int mes, int ano){
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+    }
+
     public void setDia(int dia) {this.dia = dia;}
     public int getDia() {return dia;}
 
